@@ -1,0 +1,248 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: 'Calibri', Arial, sans-serif; color: #1b1b1b; margin: 40px; }
+  h1 { color: #14555a; }
+  h2 { color: #1f6f6f; border-bottom: 2px solid #e9c46a; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 12px; }
+  th { background-color: #14555a; color: white; }
+  .meta { color: #555; font-size: 13px; margin-bottom: 20px; }
+  .discordant { background-color: #f8d7da; }
+</style>
+</head>
+<body>
+  <h1>Rare Disease Variant Report — DM1</h1>
+  <div class="meta">Generated 2026-07-15 09:31 · Pipeline v1.1 · Tool chain: bcftools, VEP,
+  SnpEff, ClinVar/SnpSift, gnomAD, SpliceAI, REVEL, AlphaMissense, CADD, ClinGen dosage,
+  InterVar, ClassifyCNV, SvAnna (AnnotSV-equivalent), ExpansionHunter/TRGT, pbsv/Sniffles2/Truvari</div>
+
+  <h2>Disease-Specific Findings</h2>
+  <ul>
+  
+    <li><b>DM1:</b> CTG repeat expansion sized at 80 repeats (pathogenic threshold >=50 per ACMG/AMP repeat-expansion criteria); see Section 7a.</li>
+  
+  </ul>
+
+  <h2>Prioritized Variants</h2>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>priority_score</th>
+      <th>score_reasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45770205</td>
+      <td>C</td>
+      <td><STR80></td>
+      <td>repeat_expansion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>n/a (repeat locus)</td>
+      <td>n/a (repeat locus)</td>
+      <td>Pathogenic (repeat-expansion rule)</td>
+      <td>Pathogenic (ExpansionHunter: 80 CTG repeats, threshold >=50)</td>
+      <td>N/A (repeat locus)</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMPK); +5 functional impact (HIGH)</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45771320</td>
+      <td>G</td>
+      <td>A</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.0009</td>
+      <td>0.42</td>
+      <td>0.31</td>
+      <td>19.1</td>
+      <td>0.02</td>
+      <td>Uncertain_significance</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Uncertain Significance (PM2,BP4)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMPK); +3 functional impact (MODERATE); +2 rare in gnomAD</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45778990</td>
+      <td>T</td>
+      <td>C</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.1800</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.2</td>
+      <td>0.01</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.0</td>
+      <td>+5 gene match (DMPK); -5 common in gnomAD</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+  <h2>Multi-Tool Comparison</h2>
+  <p>Each variant's call from ClinVar, InterVar, and the SV/CNV path (ClassifyCNV + SvAnna,
+  standing in for AnnotSV) side by side, with a concordance flag.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>heteroplasmy</th>
+      <th>deleted_exons</th>
+      <th>frame_effect</th>
+      <th>tool_agreement</th>
+      <th>n_tools_reporting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45770205</td>
+      <td>C</td>
+      <td><STR80></td>
+      <td>repeat_expansion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>n/a (repeat locus)</td>
+      <td>n/a (repeat locus)</td>
+      <td>Pathogenic (repeat-expansion rule)</td>
+      <td>Pathogenic (ExpansionHunter: 80 CTG repeats, threshold >=50)</td>
+      <td>N/A (repeat locus)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45771320</td>
+      <td>G</td>
+      <td>A</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.0009</td>
+      <td>0.42</td>
+      <td>0.31</td>
+      <td>19.1</td>
+      <td>0.02</td>
+      <td>Uncertain_significance</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Uncertain Significance (PM2,BP4)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45778990</td>
+      <td>T</td>
+      <td>C</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.1800</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.2</td>
+      <td>0.01</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+  
+
+  <h2>Figures</h2>
+  
+</body>
+</html>

@@ -1,0 +1,256 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: 'Calibri', Arial, sans-serif; color: #1b1b1b; margin: 40px; }
+  h1 { color: #14555a; }
+  h2 { color: #1f6f6f; border-bottom: 2px solid #e9c46a; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 12px; }
+  th { background-color: #14555a; color: white; }
+  .meta { color: #555; font-size: 13px; margin-bottom: 20px; }
+  .discordant { background-color: #f8d7da; }
+</style>
+</head>
+<body>
+  <h1>Rare Disease Variant Report — DMD</h1>
+  <div class="meta">Generated 2026-07-15 09:31 · Pipeline v1.1 · Tool chain: bcftools, VEP,
+  SnpEff, ClinVar/SnpSift, gnomAD, SpliceAI, REVEL, AlphaMissense, CADD, ClinGen dosage,
+  InterVar, ClassifyCNV, SvAnna (AnnotSV-equivalent), ExpansionHunter/TRGT, pbsv/Sniffles2/Truvari</div>
+
+  <h2>Disease-Specific Findings</h2>
+  <ul>
+  
+    <li><b>DMD:</b> Exon 45-47 in-frame deletion (predicted milder, BMD-like) plus an independent exon nonsense SNV (predicted severe, DMD-like); see Section 7c.</li>
+  
+  </ul>
+
+  <h2>Prioritized Variants</h2>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>deleted_exons</th>
+      <th>frame_effect</th>
+      <th>priority_score</th>
+      <th>score_reasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32300500</td>
+      <td>C</td>
+      <td>T</td>
+      <td>nonsense</td>
+      <td>HIGH</td>
+      <td>0.00005</td>
+      <td>None</td>
+      <td>None</td>
+      <td>34.0</td>
+      <td>0.03</td>
+      <td>Pathogenic</td>
+      <td>stop_gained</td>
+      <td>stop_gained</td>
+      <td>Pathogenic (PVS1,PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>None</td>
+      <td>Frameshift/truncating (predicted severe DMD)</td>
+      <td>13.0</td>
+      <td>+5 gene match (DMD); +5 functional impact (HIGH); +2 rare in gnomAD; +1 CADD >= 20</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>31950000</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Likely Pathogenic (SvAnna, in-frame exon 45-47 del)</td>
+      <td>DMD: haploinsufficiency sufficient (HI=3)</td>
+      <td>45-47</td>
+      <td>In-frame (predicted milder / BMD-like)</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMD); +5 functional impact (HIGH)</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32450100</td>
+      <td>G</td>
+      <td>A</td>
+      <td>synonymous</td>
+      <td>LOW</td>
+      <td>0.22000</td>
+      <td>None</td>
+      <td>None</td>
+      <td>2.1</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>synonymous_variant</td>
+      <td>synonymous_variant</td>
+      <td>Benign (BA1,BP7)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>None</td>
+      <td>None</td>
+      <td>1.0</td>
+      <td>+5 gene match (DMD); +1 functional impact (LOW); -5 common in gnomAD</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+  <h2>Multi-Tool Comparison</h2>
+  <p>Each variant's call from ClinVar, InterVar, and the SV/CNV path (ClassifyCNV + SvAnna,
+  standing in for AnnotSV) side by side, with a concordance flag.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>heteroplasmy</th>
+      <th>deleted_exons</th>
+      <th>frame_effect</th>
+      <th>tool_agreement</th>
+      <th>n_tools_reporting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>31950000</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Likely Pathogenic (SvAnna, in-frame exon 45-47 del)</td>
+      <td>DMD: haploinsufficiency sufficient (HI=3)</td>
+      <td>NaN</td>
+      <td>45-47</td>
+      <td>In-frame (predicted milder / BMD-like)</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32300500</td>
+      <td>C</td>
+      <td>T</td>
+      <td>nonsense</td>
+      <td>HIGH</td>
+      <td>0.00005</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>0.03</td>
+      <td>Pathogenic</td>
+      <td>stop_gained</td>
+      <td>stop_gained</td>
+      <td>Pathogenic (PVS1,PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>Frameshift/truncating (predicted severe DMD)</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32450100</td>
+      <td>G</td>
+      <td>A</td>
+      <td>synonymous</td>
+      <td>LOW</td>
+      <td>0.22000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.1</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>synonymous_variant</td>
+      <td>synonymous_variant</td>
+      <td>Benign (BA1,BP7)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+  
+
+  <h2>Figures</h2>
+  
+</body>
+</html>

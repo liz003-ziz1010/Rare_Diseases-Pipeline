@@ -1,0 +1,790 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: 'Calibri', Arial, sans-serif; color: #1b1b1b; margin: 40px; }
+  h1 { color: #14555a; }
+  h2 { color: #1f6f6f; border-bottom: 2px solid #e9c46a; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 12px; }
+  th { background-color: #14555a; color: white; }
+  .meta { color: #555; font-size: 13px; margin-bottom: 20px; }
+  .discordant { background-color: #f8d7da; }
+</style>
+</head>
+<body>
+  <h1>Rare Disease Variant Report — DM1 / MERRF / DMD / Haemophilia A</h1>
+  <div class="meta">Generated 2026-07-15 09:31 · Pipeline v1.1 · Tool chain: bcftools, VEP,
+  SnpEff, ClinVar/SnpSift, gnomAD, SpliceAI, REVEL, AlphaMissense, CADD, ClinGen dosage,
+  InterVar, ClassifyCNV, SvAnna (AnnotSV-equivalent), ExpansionHunter/TRGT, pbsv/Sniffles2/Truvari</div>
+
+  <h2>Disease-Specific Findings</h2>
+  <ul>
+  
+    <li><b>DM1:</b> CTG repeat expansion sized at 80 repeats (pathogenic threshold >=50 per ACMG/AMP repeat-expansion criteria); see Section 7a.</li>
+  
+    <li><b>MERRF:</b> m.8344A>G hotspot detected at 78% heteroplasmy, the classic MERRF mutation; a second hotspot at low heteroplasmy is flagged discordant between ClinVar and InterVar — see Section 7b.</li>
+  
+    <li><b>DMD:</b> Exon 45-47 in-frame deletion (predicted milder, BMD-like) plus an independent exon nonsense SNV (predicted severe, DMD-like); see Section 7c.</li>
+  
+    <li><b>HEMA_A:</b> F8 likely-pathogenic missense, a large exon 1-2 deletion, and an intron 22 inversion candidate flagged for long-read/inverse-PCR confirmation (not auto-called); see Section 7d.</li>
+  
+  </ul>
+
+  <h2>Prioritized Variants</h2>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>priority_score</th>
+      <th>score_reasons</th>
+      <th>heteroplasmy</th>
+      <th>deleted_exons</th>
+      <th>frame_effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45770205</td>
+      <td>C</td>
+      <td><STR80></td>
+      <td>repeat_expansion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>n/a (repeat locus)</td>
+      <td>n/a (repeat locus)</td>
+      <td>Pathogenic (repeat-expansion rule)</td>
+      <td>Pathogenic (ExpansionHunter: 80 CTG repeats, threshold >=50)</td>
+      <td>N/A (repeat locus)</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMPK); +5 functional impact (HIGH)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45771320</td>
+      <td>G</td>
+      <td>A</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.00090</td>
+      <td>0.42</td>
+      <td>0.31</td>
+      <td>19.1</td>
+      <td>0.02</td>
+      <td>Uncertain_significance</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Uncertain Significance (PM2,BP4)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMPK); +3 functional impact (MODERATE); +2 rare in gnomAD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45778990</td>
+      <td>T</td>
+      <td>C</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.18000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.2</td>
+      <td>0.01</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.0</td>
+      <td>+5 gene match (DMPK); -5 common in gnomAD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8344</td>
+      <td>A</td>
+      <td>G</td>
+      <td>point_mutation</td>
+      <td>HIGH</td>
+      <td>0.00002</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Pathogenic (known hotspot, PS1/PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>12.0</td>
+      <td>+5 gene match (MT-TK); +5 functional impact (HIGH); +2 rare in gnomAD</td>
+      <td>0.78</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8356</td>
+      <td>T</td>
+      <td>C</td>
+      <td>point_mutation</td>
+      <td>MODERATE</td>
+      <td>0.00001</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Uncertain_significance</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Likely Pathogenic (PM1,PM2 - reported hotspot, low heteroplasmy)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>10.0</td>
+      <td>+5 gene match (MT-TK); +3 functional impact (MODERATE); +2 rare in gnomAD</td>
+      <td>0.06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8302</td>
+      <td>C</td>
+      <td>T</td>
+      <td>point_mutation</td>
+      <td>MODIFIER</td>
+      <td>0.35000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Benign</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Benign (BA1, common haplogroup marker)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.0</td>
+      <td>+5 gene match (MT-TK); -5 common in gnomAD</td>
+      <td>1.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32300500</td>
+      <td>C</td>
+      <td>T</td>
+      <td>nonsense</td>
+      <td>HIGH</td>
+      <td>0.00005</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>0.03</td>
+      <td>Pathogenic</td>
+      <td>stop_gained</td>
+      <td>stop_gained</td>
+      <td>Pathogenic (PVS1,PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>13.0</td>
+      <td>+5 gene match (DMD); +5 functional impact (HIGH); +2 rare in gnomAD; +1 CADD >= 20</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>Frameshift/truncating (predicted severe DMD)</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>31950000</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Likely Pathogenic (SvAnna, in-frame exon 45-47 del)</td>
+      <td>DMD: haploinsufficiency sufficient (HI=3)</td>
+      <td>10.0</td>
+      <td>+5 gene match (DMD); +5 functional impact (HIGH)</td>
+      <td>NaN</td>
+      <td>45-47</td>
+      <td>In-frame (predicted milder / BMD-like)</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32450100</td>
+      <td>G</td>
+      <td>A</td>
+      <td>synonymous</td>
+      <td>LOW</td>
+      <td>0.22000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.1</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>synonymous_variant</td>
+      <td>synonymous_variant</td>
+      <td>Benign (BA1,BP7)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>1.0</td>
+      <td>+5 gene match (DMD); +1 functional impact (LOW); -5 common in gnomAD</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154843200</td>
+      <td>C</td>
+      <td>T</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.00003</td>
+      <td>0.81</td>
+      <td>0.72</td>
+      <td>27.0</td>
+      <td>0.04</td>
+      <td>Likely_pathogenic</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Likely Pathogenic (PM1,PM2,PP3)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>15.0</td>
+      <td>+5 gene match (F8); +3 functional impact (MODERATE); +2 rare in gnomAD; +2 REVEL predicts damaging; +2 AlphaMissense predicts pathogenic; +1 CADD >= 20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154836200</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Pathogenic (SvAnna, exon 1-2 del, loss of start codon)</td>
+      <td>F8: haploinsufficiency sufficient (HI=3)</td>
+      <td>10.0</td>
+      <td>+5 gene match (F8); +5 functional impact (HIGH)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154845200</td>
+      <td>N</td>
+      <td><BND></td>
+      <td>candidate_inversion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>not_in_clinvar</td>
+      <td>n/a (breakend, manual review)</td>
+      <td>n/a</td>
+      <td>N/A (SV)</td>
+      <td>Flagged candidate (intron 22 inversion hotspot) - requires long-read/inverse-PCR confirmation</td>
+      <td>N/A</td>
+      <td>10.0</td>
+      <td>+5 gene match (F8); +5 functional impact (HIGH)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154860000</td>
+      <td>A</td>
+      <td>G</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.29000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.0</td>
+      <td>+5 gene match (F8); -5 common in gnomAD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+  <h2>Multi-Tool Comparison</h2>
+  <p>Each variant's call from ClinVar, InterVar, and the SV/CNV path (ClassifyCNV + SvAnna,
+  standing in for AnnotSV) side by side, with a concordance flag.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>disease</th>
+      <th>gene</th>
+      <th>chrom</th>
+      <th>pos</th>
+      <th>ref</th>
+      <th>alt</th>
+      <th>variant_type</th>
+      <th>impact</th>
+      <th>gnomad_af</th>
+      <th>revel</th>
+      <th>alphamissense</th>
+      <th>cadd_phred</th>
+      <th>spliceai_delta</th>
+      <th>clinvar_significance</th>
+      <th>vep_consequence</th>
+      <th>snpeff_consequence</th>
+      <th>intervar_class</th>
+      <th>sv_cnv_class</th>
+      <th>clingen_dosage</th>
+      <th>heteroplasmy</th>
+      <th>deleted_exons</th>
+      <th>frame_effect</th>
+      <th>tool_agreement</th>
+      <th>n_tools_reporting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45770205</td>
+      <td>C</td>
+      <td><STR80></td>
+      <td>repeat_expansion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>n/a (repeat locus)</td>
+      <td>n/a (repeat locus)</td>
+      <td>Pathogenic (repeat-expansion rule)</td>
+      <td>Pathogenic (ExpansionHunter: 80 CTG repeats, threshold >=50)</td>
+      <td>N/A (repeat locus)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45771320</td>
+      <td>G</td>
+      <td>A</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.00090</td>
+      <td>0.42</td>
+      <td>0.31</td>
+      <td>19.1</td>
+      <td>0.02</td>
+      <td>Uncertain_significance</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Uncertain Significance (PM2,BP4)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DM1</td>
+      <td>DMPK</td>
+      <td>chr19</td>
+      <td>45778990</td>
+      <td>T</td>
+      <td>C</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.18000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.2</td>
+      <td>0.01</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8344</td>
+      <td>A</td>
+      <td>G</td>
+      <td>point_mutation</td>
+      <td>HIGH</td>
+      <td>0.00002</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Pathogenic (known hotspot, PS1/PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.78</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8356</td>
+      <td>T</td>
+      <td>C</td>
+      <td>point_mutation</td>
+      <td>MODERATE</td>
+      <td>0.00001</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Uncertain_significance</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Likely Pathogenic (PM1,PM2 - reported hotspot, low heteroplasmy)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>0.06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Discordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>MERRF</td>
+      <td>MT-TK</td>
+      <td>chrM</td>
+      <td>8302</td>
+      <td>C</td>
+      <td>T</td>
+      <td>point_mutation</td>
+      <td>MODIFIER</td>
+      <td>0.35000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Benign</td>
+      <td>tRNA_variant</td>
+      <td>non_coding_transcript_variant</td>
+      <td>Benign (BA1, common haplogroup marker)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>1.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>31950000</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Likely Pathogenic (SvAnna, in-frame exon 45-47 del)</td>
+      <td>DMD: haploinsufficiency sufficient (HI=3)</td>
+      <td>NaN</td>
+      <td>45-47</td>
+      <td>In-frame (predicted milder / BMD-like)</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32300500</td>
+      <td>C</td>
+      <td>T</td>
+      <td>nonsense</td>
+      <td>HIGH</td>
+      <td>0.00005</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>0.03</td>
+      <td>Pathogenic</td>
+      <td>stop_gained</td>
+      <td>stop_gained</td>
+      <td>Pathogenic (PVS1,PM2)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>Frameshift/truncating (predicted severe DMD)</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>DMD</td>
+      <td>DMD</td>
+      <td>chrX</td>
+      <td>32450100</td>
+      <td>G</td>
+      <td>A</td>
+      <td>synonymous</td>
+      <td>LOW</td>
+      <td>0.22000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.1</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>synonymous_variant</td>
+      <td>synonymous_variant</td>
+      <td>Benign (BA1,BP7)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154843200</td>
+      <td>C</td>
+      <td>T</td>
+      <td>missense</td>
+      <td>MODERATE</td>
+      <td>0.00003</td>
+      <td>0.81</td>
+      <td>0.72</td>
+      <td>27.0</td>
+      <td>0.04</td>
+      <td>Likely_pathogenic</td>
+      <td>missense_variant</td>
+      <td>missense_variant</td>
+      <td>Likely Pathogenic (PM1,PM2,PP3)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154836200</td>
+      <td>N</td>
+      <td><DEL></td>
+      <td>exon_deletion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pathogenic</td>
+      <td>transcript_ablation</td>
+      <td>exon_loss_variant</td>
+      <td>N/A (SV, see sv_cnv_class)</td>
+      <td>Pathogenic (ClassifyCNV) / Pathogenic (SvAnna, exon 1-2 del, loss of start codon)</td>
+      <td>F8: haploinsufficiency sufficient (HI=3)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154845200</td>
+      <td>N</td>
+      <td><BND></td>
+      <td>candidate_inversion</td>
+      <td>HIGH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>not_in_clinvar</td>
+      <td>n/a (breakend, manual review)</td>
+      <td>n/a</td>
+      <td>N/A (SV)</td>
+      <td>Flagged candidate (intron 22 inversion hotspot) - requires long-read/inverse-PCR confirmation</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>HEMA_A</td>
+      <td>F8</td>
+      <td>chrX</td>
+      <td>154860000</td>
+      <td>A</td>
+      <td>G</td>
+      <td>intron_variant</td>
+      <td>MODIFIER</td>
+      <td>0.29000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0.00</td>
+      <td>Benign</td>
+      <td>intron_variant</td>
+      <td>intron_variant</td>
+      <td>Benign (BA1)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Concordant</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+  
+
+  <h2>Figures</h2>
+  
+    <div><img src="/content/RareDiseasePipeline/figures/variant_counts_per_disease.png" style="max-width:700px; margin-bottom:16px;"></div>
+  
+    <div><img src="/content/RareDiseasePipeline/figures/tool_agreement_by_disease.png" style="max-width:700px; margin-bottom:16px;"></div>
+  
+</body>
+</html>
